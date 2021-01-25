@@ -14,7 +14,7 @@
 
 REPO_URL="https://github.com/aditya7iyengar/dotfiles"
 DOTFILES_PATH="$HOME/.dotfiles"
-DOTFILES_SECRETS_PATH="$HOME/.dotfiles.secrets"
+DOTFILES_CUSTOM_PATH="$HOME/.dotfiles.custom"
 
 # Prints main steps of this installer
 _print_step() {
@@ -31,13 +31,13 @@ clone_repo() {
   git clone $REPO_URL $DOTFILES_PATH
 }
 
-# Clone secrets repo
-clone_secrets_repo() {
+# Clone custom repo
+clone_custom_repo() {
   _print_step "Cloning Secrets Repo"
-  if [[ -z $SECRETS_REPO_URL ]]; then
-    git clone $SECRETS_REPO_URL $DOTFILES_SECRETS_PATH
+  if [[ -z $CUSTOM_REPO_URL ]]; then
+    git clone $CUSTOM_REPO_URL $DOTFILES_CUSTOM_PATH
   else
-    echo "No $SECRETS_REPO_URL given"
+    echo "No $CUSTOM_REPO_URL given"
   fi
 }
 
@@ -83,8 +83,8 @@ _symlink_zsh_files() {
   _symlink $source_directory/aliases.sh $destination_directory/aliases.sh
 
   # Secrets
-  if [[ -z $SECRETS_REPO_URL ]]; then
-    _symlink $DOTFILES_SECRETS_PATH/.zshrc-components/secrets.sh $destination_directory/secrets.sh
+  if [[ -z $CUSTOM_REPO_URL ]]; then
+    _symlink $DOTFILES_CUSTOM_PATH/.zshrc-components/custom.sh $destination_directory/custom.sh
   fi
 
   # Languages & Tools
@@ -116,8 +116,8 @@ _symlink_nvim_files() {
   _symlink $source_directory/gen-config.vim $destination_directory/gen-config.vim
 
   # Vim Secrets
-  if [[ -z $SECRETS_REPO_URL ]]; then
-    _symlink $DOTFILES_SECRETS_PATH/.vimrc-components/secrets.vim $destination_directory/secrets.vim
+  if [[ -z $CUSTOM_REPO_URL ]]; then
+    _symlink $DOTFILES_CUSTOM_PATH/.vimrc-components/custom.vim $destination_directory/custom.vim
   fi
 
   # Vundle (Plugin Manager)
@@ -154,7 +154,7 @@ symlink_files() {
 main() {
   clone_repo
   install_oh_my_zsh
-  clone_secrets_repo
+  clone_custom_repo
   symlink_files
 }
 

@@ -40,8 +40,8 @@ if [[ -e ./.zshrc-components/aliases.sh ]]; then
   source ./.zshrc-components/aliases.sh
 fi
 
-if [[ -e ./.zshrc-components/secrets.sh ]]; then
-  source ./.zshrc-components/secrets.sh
+if [[ -e ./.zshrc-components/custom.sh ]]; then
+  source ./.zshrc-components/custom.sh
 fi
 
 if [[ -e ./.zshrc-components/asdf.sh ]]; then
