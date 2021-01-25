@@ -82,7 +82,7 @@ _symlink_zsh_files() {
   _symlink $source_directory/exports.sh $destination_directory/exports.sh
   _symlink $source_directory/aliases.sh $destination_directory/aliases.sh
 
-  # Secrets
+  # Custom
   if [[ -z $CUSTOM_REPO_URL ]]; then
     _symlink $DOTFILES_CUSTOM_PATH/.zshrc-components/custom.sh $destination_directory/custom.sh
   fi
@@ -141,6 +141,21 @@ _symlink_nvim_files() {
   _symlink $DOTFILES_PATH/.config/nvim/init.vim $HOME/.config/nvim/init.vim
 }
 
+# Creates symbolic link for .tmux.conf file
+_symlink_tmux_files() {
+  _symlink $DOTFILES_PATH/.tmux.conf $HOME/.tmux.conf
+}
+
+_symlink_git_files() {
+  _symlink $DOTFILES_PATH/.gitignore $HOME/.gitignore
+
+  # User specific git configs
+  if [[ -z $CUSTOM_REPO_URL ]]; then
+    _symlink $DOTFILES_CUSTOM_PATH/.gitconfig $HOME/.gitconfig
+    _symlink $DOTFILES_CUSTOM_PATH/.git-components/commit-template $HOME/.git-components/commit-template
+  fi
+}
+
 # Creates symbolic link for all dotfiles to function
 symlink_files() {
   _print_step "Linking ZSH files"
@@ -148,6 +163,12 @@ symlink_files() {
 
   _print_step "Linking NeoVim files"
   _symlink_nvim_files
+
+  _print_step "Linking Tmux files"
+  _symlink_tmux_files
+
+  _print_step "Linking Git files"
+  _symlink_git_files
 }
 
 # Main interface for this script
