@@ -127,11 +127,7 @@ _symlink_nvim_files() {
   _symlink $source_directory/gen-plugins.vim $destination_directory/gen-plugins.vim
 
   # Languages
-  _symlink $source_directory/elixir.vim $destination_directory/elixir.vim
-  _symlink $source_directory/rust.vim $destination_directory/rust.vim
-  _symlink $source_directory/haskell.vim $destination_directory/haskell.vim
-  _symlink $source_directory/ruby.vim $destination_directory/ruby.vim
-  _symlink $source_directory/go.vim $destination_directory/go.vim
+  _symlink $source_directory/languages.vim $destination_directory/languages.vim
 
   # Functions and Mappings
   _symlink $source_directory/functions.vim $destination_directory/functions.vim

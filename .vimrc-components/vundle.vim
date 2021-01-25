@@ -128,3 +128,75 @@ filetype on
 
 " All of your Plugins must be added before the following line
 call vundle#end()
+
+" ================ Yankring =========================
+
+let g:yankring_history_file = '.yankring-history'
+nnoremap ,yr :YRShow<CR>
+let g:yankring_clipboard_monitor=0
+
+" ================ CtrlP ============================
+
+if exists("g:ctrlp_user_command")
+  unlet g:ctrlp_user_command
+endif
+
+" Use ripgrep as CtrlP search engine
+if executable('rg')
+  " Use ripgrep for primary listing .Crazy fast and most configuratble
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --glob ""'
+
+  " Ripgrep is fast enough to not need caching
+  " This might change if there are multiple files with similar names
+  let g:ctrlp_use_caching = 0
+elseif executable('ag')
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command =
+    \ 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$|\.beam" --ignore-dir "_build" --ignore-dir "node_modules" --ignore-dir "deps"'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 1
+else
+  " Fall back to using git ls-files if Ag is not available
+  let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+endif
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|_build)$',
+  \ 'file': '\v\.(exe|so|dll|beam)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+" Don't jump to already open window. This is annoying if you are maintaining
+" several Tab workspaces and want to open two windows into the same file.
+let g:ctrlp_switch_buffer = 0
+
+" ================ Nerd Tree ========================
+
+" Auto open nerd tree on startup
+let g:nerdtree_tabs_open_on_gui_startup = 0
+" Focus in the main content window
+let g:nerdtree_tabs_focus_on_files = 1
+" Make nerdtree look nice
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let g:NERDTreeWinSize = 30
+
+" Enable deoplate at startup
+let g:deoplete#enable_at_startup = 1
+
+" ================= Color scheme ===================
+" colorscheme archery
+
+let g:enable_bold_font = 1
+let g:enable_italic_font = 1
+
+set background=dark
+colorscheme hybrid_material
+let g:airline_theme = "hybrid"
+
+" Limelight
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!

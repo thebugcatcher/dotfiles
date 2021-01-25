@@ -31,24 +31,8 @@ if !empty(expand("./.vimrc-components/custom.vim"))
 endif
 
 " Load Languages
-if !empty(expand("./.vimrc-components/elixir.vim"))
-  source "./.vimrc-components/elixir.vim"
-endif
-
-if !empty(expand("./.vimrc-components/rust.vim"))
-  source "./.vimrc-components/rust.vim"
-endif
-
-if !empty(expand("./.vimrc-components/haskell.vim"))
-  source "./.vimrc-components/haskell.vim"
-endif
-
-if !empty(expand("./.vimrc-components/ruby.vim"))
-  source "./.vimrc-components/ruby.vim"
-endif
-
-if !empty(expand("./.vimrc-components/go.vim"))
-  source "./.vimrc-components/go.vim"
+if !empty(expand("./.vimrc-components/languages.vim"))
+  source "./.vimrc-components/languages.vim"
 endif
 
 " Generic Functions and Mappings
