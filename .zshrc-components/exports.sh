@@ -15,6 +15,14 @@ export EDITOR="nvim"
 
 export TERM=xterm-256color
 
+export QT_STYLE_OVERRIDE=gtk
+export QT_SELECT=qt5
+
+# Set default language to US English
+if [[ $LANG = '' ]]; then
+  export LANG=en_US.UTF-8
+fi
+
 # XDG-User-dir well known directory
 if [ -d "$HOME/.local/bin" ] ; then
   export PATH="$HOME/.local/bin:$PATH"
