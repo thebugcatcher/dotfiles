@@ -33,7 +33,7 @@ clone_repo() {
 
 # Clone custom repo
 clone_custom_repo() {
-  _print_step "Cloning Secrets Repo"
+  _print_step "Cloning Custom Repo"
   if [[ -z $CUSTOM_REPO_URL ]]; then
     git clone $CUSTOM_REPO_URL $DOTFILES_CUSTOM_PATH
   else
@@ -115,7 +115,7 @@ _symlink_nvim_files() {
   # General Vim Config
   _symlink $source_directory/gen-config.vim $destination_directory/gen-config.vim
 
-  # Vim Secrets
+  # Custom Vim
   if [[ -z $CUSTOM_REPO_URL ]]; then
     _symlink $DOTFILES_CUSTOM_PATH/.vimrc-components/custom.vim $destination_directory/custom.vim
   fi

@@ -87,7 +87,6 @@ alias gitlines='git ls-files | xargs wc -l'
 # List git authors
 alias gitauthors='git log --format='%aN' | sort -u'
 
-
 ###################
 ## TMUX COMMANDS ##
 ###################
@@ -118,3 +117,22 @@ alias sublch='sublime -o $(gd --name-only)'
 
 # zsh profile editing
 alias ze='vim ~/.zshrc'
+
+###################
+### SSH COMMANDS ##
+###################
+alias ssh='TERM=xterm ssh'
+
+###############
+## Sys-Admin ##
+###############
+
+# Usage: $ kill_all beam
+kill_all() {
+  match=$1
+  if [ -z "$match" ]; then
+    echo 'No argument given'
+  else
+    ps aux | grep -e $match | grep -v grep | tr -s ' ' | cut -d ' ' -f 2 | xargs kill -9
+  fi
+}
