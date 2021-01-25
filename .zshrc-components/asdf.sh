@@ -1,11 +1,11 @@
 #==============================================================================
-# title          : .zshrc-components/asdf
+# title          : .zshrc-components/asdf.sh
 # description    : This file contains my zsh configurations for usage with asdf
 # author         : Adi Iyengar
 # username       : aditya7iyengar
 # date_created   : 2017-02-01
 # version        : 0.9
-# usage          : link/move to ~/.zshrc-components/asdf
+# usage          : link/move to ~/.zshrc-components/asdf.sh
 # notes          : This adds a zsh config for asdf package manager
 # versions       : Tmux 2.x, Zsh 5.x
 #==============================================================================
