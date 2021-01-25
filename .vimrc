@@ -25,9 +25,9 @@ if !empty(expand("./.vimrc-components/vundle.vim"))
   source "./.vimrc-components/vundle.vim"
 endif
 
-" Load General plugins
-if !empty(expand("./.vimrc-components/gen-plugins.vim"))
-  source "./.vimrc-components/gen-plugins.vim"
+" Load Custom vim config
+if !empty(expand("./.vimrc-components/custom.vim"))
+  source "./.vimrc-components/custom.vim"
 endif
 
 " Load Languages
@@ -53,7 +53,7 @@ endif
 
 " Generic Functions and Mappings
 if !empty(expand("./.vimrc-components/functions.vim"))
-  source "./.vimrc-components/function.vim"
+  source "./.vimrc-components/functions.vim"
 endif
 
 if !empty(expand("./.vimrc-components/mappings.vim"))
