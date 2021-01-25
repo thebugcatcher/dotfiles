@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 #==============================================================================
 # title          : installer.sh
 # description    : Installer script for these configurations
@@ -6,7 +7,7 @@
 # username       : aditya7iyengar
 # date_created   : 2017-02-01
 # version        : 0.9
-# usage		 : $ bash <filename or wget url>
+# usage          : $ bash <filename or wget url>
 # notes          : This scripts installs tools for these configurations
 # versions       : Tmux 2.x, Zsh 5.x
 #==============================================================================
@@ -57,7 +58,7 @@ _symlink() {
     # Preserve dotfiles pre installation process
     if [[ -e $destination_path ]]; then
       mv $destination_path "${destination_path}.pre-dotfiles"
-    fi 
+    fi
 
     ln -sf $source_path $destination_path
   fi
@@ -67,10 +68,10 @@ _symlink() {
 _symlink_zsh_files() {
   _symlink $DOTFILES_PATH/.zshrc $HOME/.zshrc
 
-  destination_directory="$HOME/.zshrcs"
-  source_directory="$HOME/.zshrcs"
+  destination_directory="$HOME/.zshrc-components"
+  source_directory="$DOTFILES_PATH/.zshrc-components"
 
-  # Preserve previous $HOME/.zshrcs directory if it exists
+  # Preserve previous $HOME/.zshrc-components directory if it exists
   if [[ -e $destination_directory ]]; then
     mv $destination_directory "${destination_directory}.pre-dotfiles"
   fi
@@ -78,52 +79,71 @@ _symlink_zsh_files() {
   # Create $HOME/.zsh directory
   mkdir $destination_directory
 
-  _symlink $source_directory/exports $destination_directory/exports
-  _symlink $source_directory/aliases $destination_directory/aliases
+  _symlink $source_directory/exports.sh $destination_directory/exports.sh
+  _symlink $source_directory/aliases.sh $destination_directory/aliases.sh
 
+  # Secrets
   if [[ -z $SECRETS_REPO_URL ]]; then
-    _symlink $DOTFILES_SECRETS_PATH/.zsh/secrets $destination_directory/secrets
+    _symlink $DOTFILES_SECRETS_PATH/.zshrc-components/secrets.sh $destination_directory/secrets.sh
   fi
 
   # Languages & Tools
-  _symlink $source_directory/asdf $destination_directory/asdf
-  _symlink $source_directory/asdf.elixir $destination_directory/asdf.elixir
-  _symlink $source_directory/asdf.rust $destination_directory/asdf.rust
-  _symlink $source_directory/asdf.ruby $destination_directory/asdf.ruby
-  _symlink $source_directory/asdf.go $destination_directory/asdf.go
-  _symlink $source_directory/asdf.direnv $destination_directory/asdf.direnv
-  _symlink $source_directory/asdf.nvim $destination_directory/asdf.nvim
-  _symlink $source_directory/fasd $destination_directory/fasd
+  _symlink $source_directory/asdf.sh $destination_directory/asdf.sh
+  _symlink $source_directory/asdf.elixir.sh $destination_directory/asdf.elixir.sh
+  _symlink $source_directory/asdf.rust.sh $destination_directory/asdf.rust.sh
+  _symlink $source_directory/asdf.ruby.sh $destination_directory/asdf.ruby.sh
+  _symlink $source_directory/asdf.go.sh $destination_directory/asdf.go.sh
+  _symlink $source_directory/asdf.direnv.sh $destination_directory/asdf.direnv.sh
+  _symlink $source_directory/asdf.nvim.sh $destination_directory/asdf.nvim.sh
+  _symlink $source_directory/fasd.sh $destination_directory/fasd.sh
 }
 
 _symlink_nvim_files() {
   _symlink $DOTFILES_PATH/.vimrc $HOME/.vimrc
-  _symlink $DOTFILES_PATH/.vimrcs/gen-config $HOME/.vimrcs/gen-config
+
+  destination_directory="$HOME/.vimrc-components"
+  source_directory="$DOTFILES_PATH/.vimrc-components"
+
+  # Preserve previous $HOME/.vimrc-components directory if it exists
+  if [[ -e $destination_directory ]]; then
+    mv $destination_directory "${destination_directory}.pre-dotfiles"
+  fi
+
+  # Create $HOME/.zsh directory
+  mkdir $destination_directory
+
+  # General Vim Config
+  _symlink $source_directory/gen-config.vim $destination_directory/gen-config.vim
+
+  # Vim Secrets
+  if [[ -z $SECRETS_REPO_URL ]]; then
+    _symlink $DOTFILES_SECRETS_PATH/.vimrc-components/secrets.vim $destination_directory/secrets.vim
+  fi
 
   # Vundle (Plugin Manager)
-  _symlink $DOTFILES_PATH/.vimrcs/vundle $HOME/.vimrcs/vundle
+  _symlink $source_directory/vundle.vim $destination_directory/vundle.vim
 
   # General plugins
-  _symlink $DOTFILES_PATH/.vimrcs/gen-plugins $HOME/.vimrcs/gen-plugins
+  _symlink $source_directory/gen-plugins.vim $destination_directory/gen-plugins.vim
 
   # Languages
-  _symlink $DOTFILES_PATH/.vimrcs/elixir $HOME/.vimrcs/elixir
-  _symlink $DOTFILES_PATH/.vimrcs/rust $HOME/.vimrcs/rust
-  _symlink $DOTFILES_PATH/.vimrcs/haskell $HOME/.vimrcs/haskell
-  _symlink $DOTFILES_PATH/.vimrcs/ruby $HOME/.vimrcs/ruby
-  _symlink $DOTFILES_PATH/.vimrcs/go $HOME/.vimrcs/go
+  _symlink $source_directory/elixir.vim $destination_directory/elixir.vim
+  _symlink $source_directory/rust.vim $destination_directory/rust.vim
+  _symlink $source_directory/haskell.vim $destination_directory/haskell.vim
+  _symlink $source_directory/ruby.vim $destination_directory/ruby.vim
+  _symlink $source_directory/go.vim $destination_directory/go.vim
 
   # Functions and Mappings
-  _symlink $DOTFILES_PATH/.vimrcs/functions $HOME/.vimrcs/functions
-  _symlink $DOTFILES_PATH/.vimrcs/mappings $HOME/.vimrcs/mappings
+  _symlink $source_directory/functions.vim $destination_directory/functions.vim
+  _symlink $source_directory/mappings.vim $destination_directory/mappings.vim
 
   # Update system neovim to use vim config
-  _symlink $DOTFILES_PATH/nvim/init.vim $HOME/.config/nvim/init.vim
+  _symlink $DOTFILES_PATH/.config/nvim/init.vim $HOME/.config/nvim/init.vim
 }
 
 # Creates symbolic link for all dotfiles to function
 symlink_files() {
-  _print_step "Linking ZSH files"  
+  _print_step "Linking ZSH files"
   _symlink_zsh_files
 
   _print_step "Linking NeoVim files"
