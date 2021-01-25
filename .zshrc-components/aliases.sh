@@ -97,28 +97,6 @@ echo $((num - 1))
 """
 
 ###################
-## NVIM COMMANDS ##
-###################
-alias vim='nvim'
-
-alias ae='vim $HOME/.zshrc.aliases' #alias edit
-
-# vimrc editing
-alias ve='vim ~/.vimrc'
-
-# Opens last file edited in vim
-alias vimp="vim -c \"normal '0\""
-
-# Open all changed files in a git project using vim
-alias vimch='vim -o $(gd --name-only)'
-
-# Open all changed files in a git project using sublime
-alias sublch='sublime -o $(gd --name-only)'
-
-# zsh profile editing
-alias ze='vim ~/.zshrc'
-
-###################
 ### SSH COMMANDS ##
 ###################
 alias ssh='TERM=xterm ssh'

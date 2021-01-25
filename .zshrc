@@ -64,6 +64,10 @@ if [[ -e ./.zshrc-components/asdf.go.sh ]]; then
   source ./.zshrc-components/asdf.go.sh
 fi
 
+if [[ -e ./.zshrc-components/asdf.haskell.sh ]]; then
+  source ./.zshrc-components/asdf.haskell.sh
+fi
+
 if [[ -e ./.zshrc-components/asdf.direnv.sh ]]; then
   source ./.zshrc-components/asdf.direnv.sh
 fi

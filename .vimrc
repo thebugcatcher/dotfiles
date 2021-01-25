@@ -1,5 +1,5 @@
 " ========================================================================
-" title          : vimrc
+" title          : .vimrc
 " description    : This file contains configurations for vim/nvim
 " author         : Adi Iyengar
 " username       : aditya7iyengar
