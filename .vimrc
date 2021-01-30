@@ -16,30 +16,30 @@ set nocompatible
 filetype off
 
 " Load General config if exists
-if !empty(expand("./.vimrc-components/gen-config.vim"))
-  source "./.vimrc-components/gen-config.vim"
+if filereadable(expand("~/.vimrc-components/gen-config.vim"))
+  source ~/.vimrc-components/gen-config.vim
 endif
 
 " Load Vundle, plugin manager
-if !empty(expand("./.vimrc-components/vundle.vim"))
-  source "./.vimrc-components/vundle.vim"
+if filereadable(expand("~/.vimrc-components/vundle.vim"))
+  source ~/.vimrc-components/vundle.vim
 endif
 
 " Load Custom vim config
-if !empty(expand("./.vimrc-components/custom.vim"))
-  source "./.vimrc-components/custom.vim"
+if filereadable(expand("~/.vimrc-components/custom.vim"))
+  source ~/.vimrc-components/custom.vim
 endif
 
 " Load Languages
-if !empty(expand("./.vimrc-components/languages.vim"))
-  source "./.vimrc-components/languages.vim"
+if filereadable(expand("~/.vimrc-components/languages.vim"))
+  source ~/.vimrc-components/languages.vim
 endif
 
 " Generic Functions and Mappings
-if !empty(expand("./.vimrc-components/functions.vim"))
-  source "./.vimrc-components/functions.vim"
+if filereadable(expand("~/.vimrc-components/functions.vim"))
+  source ~/.vimrc-components/functions.vim
 endif
 
-if !empty(expand("./.vimrc-components/mappings.vim"))
-  source "./.vimrc-components/mappings.vim"
+if filereadable(expand("~/.vimrc-components/mappings.vim"))
+  source ~/.vimrc-components/mappings.vim
 endif
