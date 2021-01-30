@@ -13,7 +13,11 @@
 #==============================================================================
 
 REPO_URL="https://github.com/aditya7iyengar/dotfiles"
+
+# path where dotfiles will be cloned
 DOTFILES_PATH="$HOME/.dotfiles"
+
+# path where custom dotfiles will be cloned
 DOTFILES_CUSTOM_PATH="$HOME/.dotfiles.custom"
 
 # Prints main steps of this installer
@@ -28,12 +32,14 @@ $1..
 # Git clone configurations
 clone_repo() {
   _print_step "Cloning Repo"
+
   git clone $REPO_URL $DOTFILES_PATH
 }
 
 # Clone custom repo
 clone_custom_repo() {
   _print_step "Cloning Custom Repo"
+
   if [[ -z $CUSTOM_REPO_URL ]]; then
     git clone $CUSTOM_REPO_URL $DOTFILES_CUSTOM_PATH
   else
@@ -44,6 +50,7 @@ clone_custom_repo() {
 # Installs Oh my zsh
 install_oh_my_zsh() {
   _print_step "Installing Oh My Zsh"
+
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
@@ -152,18 +159,31 @@ _symlink_git_files() {
   fi
 }
 
+_install_vundle() {
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  vim +PluginInstall +qall
+}
+
 # Creates symbolic link for all dotfiles to function
 symlink_files() {
   _print_step "Linking ZSH files"
+
   _symlink_zsh_files
 
   _print_step "Linking NeoVim files"
+
   _symlink_nvim_files
 
+  _print_step "Installing Vundle"
+
+  _install_vundle
+
   _print_step "Linking Tmux files"
+
   _symlink_tmux_files
 
   _print_step "Linking Git files"
+
   _symlink_git_files
 }
 
