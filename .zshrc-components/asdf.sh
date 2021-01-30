@@ -9,6 +9,7 @@
 # notes          : This adds a zsh config for asdf package manager
 # versions       : Tmux 2.x, Zsh 5.x
 #==============================================================================
+
 autoload -U +X bashcompinit && bashcompinit
 
 if [[ -e $HOME/.asdf/asdf.sh ]]; then
