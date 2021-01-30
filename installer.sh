@@ -150,12 +150,11 @@ _symlink_tmux_files() {
 }
 
 _symlink_git_files() {
-  _symlink $DOTFILES_PATH/.gitignore $HOME/.gitignore
-
   # User specific git configs
   if [[ -z $CUSTOM_REPO_URL ]]; then
     _symlink $DOTFILES_CUSTOM_PATH/.gitconfig $HOME/.gitconfig
     _symlink $DOTFILES_CUSTOM_PATH/.git-components/commit-template $HOME/.git-components/commit-template
+    _symlink $DOTFILES_CUSTOM_PATH/.git-components/.gitignore $HOME/.git-components/.gitignore
   fi
 }
 
