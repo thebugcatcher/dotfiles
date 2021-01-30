@@ -31,7 +31,7 @@ $ bash <(curl -s https://raw.githubusercontent.com/aditya7iyengar/dotfiles/maste
 ### With Custom Repo
 
 If you want to override or add to any of the functionalities in my dotfiles,
-you can use a custom repo (could be private) structured like [this repo](todo)
+you can use a custom repo (could be private) using [this template repo](https://github.com/aditya7iyengar/dotfiles.custom-template)
 
 To use a custom repo provide `CUSTOM_REPO_URL` environment variable while
 running the above script.
@@ -42,4 +42,3 @@ $ CUSTOM_REPO_URL=git@github.com/user/repo \
 ```
 
 Your custom configurations will be added to these configurations
-
