@@ -33,12 +33,25 @@ $ bash <(curl -s https://raw.githubusercontent.com/aditya7iyengar/dotfiles/maste
 If you want to override or add to any of the functionalities in my dotfiles,
 you can use a custom repo (could be private) using [this template repo](https://github.com/aditya7iyengar/dotfiles.custom-template)
 
+Your custom configurations will be added to these configurations if you use
+the following methods:
+
+#### Remote git repo
+
 To use a custom repo provide `CUSTOM_REPO_URL` environment variable while
 running the above script.
 
 ```
-$ CUSTOM_REPO_URL=git@github.com/user/repo \
+$ CUSTOM_REPO_URL=https://github.com/user/dotfiles.custom \
   bash <(curl -s https://raw.githubusercontent.com/aditya7iyengar/dotfiles/master/installer.sh)
 ```
 
-Your custom configurations will be added to these configurations
+#### Local directory
+
+To use a local custom dotfiles directory provide `CUSTOM_LOCAL_PATH` environment 
+variable while running the above script.
+
+```
+$ CUSTOM_REPO_URL=/user/Documents/dotfiles.custom \
+  bash <(curl -s https://raw.githubusercontent.com/aditya7iyengar/dotfiles/master/installer.sh)
+```

@@ -42,6 +42,8 @@ clone_custom_repo() {
 
   if ! [[ -z $CUSTOM_REPO_URL ]]; then
     git clone $CUSTOM_REPO_URL $DOTFILES_CUSTOM_PATH
+  elif ! [[ -z $CUSTOM_LOCAL_PATH ]]; then
+    cp -r $CUSTOM_LOCAL_PATH $DOTFILES_CUSTOM_PATH
   else
     echo "No CUSTOM_REPO_URL given"
   fi
