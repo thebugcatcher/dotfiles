@@ -105,6 +105,11 @@ _symlink_zsh_files() {
   _symlink $source_directory/fasd.sh $destination_directory/fasd.sh
 }
 
+_install_vundle() {
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  vim +PluginInstall +qall -c ":q"
+}
+
 _symlink_nvim_files() {
   _symlink $DOTFILES_PATH/.vimrc $HOME/.vimrc
 
@@ -136,6 +141,10 @@ _symlink_nvim_files() {
   # Functions and Mappings
   _symlink $source_directory/mappings.vim $destination_directory/mappings.vim
 
+  _print_step "Installing Vundle"
+
+  _install_vundle
+
   # Update system neovim to use vim config
   _symlink $DOTFILES_PATH/.config/nvim/init.vim $HOME/.config/nvim/init.vim
   _symlink $DOTFILES_PATH/.config/nvim/rplugin.vim $HOME/.config/nvim/rplugin.vim
@@ -156,11 +165,6 @@ _symlink_git_files() {
   fi
 }
 
-_install_vundle() {
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-  vim +PluginInstall +qall
-}
-
 # Creates symbolic link for all dotfiles to function
 symlink_files() {
   _print_step "Linking ZSH files"
@@ -170,10 +174,6 @@ symlink_files() {
   _print_step "Linking NeoVim files"
 
   _symlink_nvim_files
-
-  _print_step "Installing Vundle"
-
-  _install_vundle
 
   _print_step "Linking Tmux files"
 

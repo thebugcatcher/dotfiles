@@ -2,7 +2,7 @@ FROM archlinux:base
 
 RUN pacman -Syyu --noconfirm
 
-RUN pacman -S --noconfirm base-devel curl git wget zsh zsh-completions tmux neovim ruby fasd
+RUN pacman -S --noconfirm base-devel curl git wget zsh zsh-completions tmux vim neovim ruby fasd
 
 RUN eval "$(fasd --init auto)"
 
