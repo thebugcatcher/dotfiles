@@ -49,6 +49,6 @@ To use a local custom dotfiles directory provide `CUSTOM_LOCAL_PATH` environment
 variable while running the above script.
 
 ```
-$ CUSTOM_REPO_URL=/user/Documents/dotfiles.custom \
+$ CUSTOM_LOCAL_PATH=/user/Documents/dotfiles.custom \
   bash <(curl -s https://raw.githubusercontent.com/aditya7iyengar/dotfiles/master/installer.sh)
 ```
