@@ -42,8 +42,10 @@ clone_custom_repo() {
 
   if ! [[ -z $CUSTOM_REPO_URL ]]; then
     git clone $CUSTOM_REPO_URL $DOTFILES_CUSTOM_PATH
+    CUSTOM_DOTFILES_GIVEN=1
   elif ! [[ -z $CUSTOM_LOCAL_PATH ]]; then
     cp -r $CUSTOM_LOCAL_PATH $DOTFILES_CUSTOM_PATH
+    CUSTOM_DOTFILES_GIVEN=1
   else
     echo "No CUSTOM_REPO_URL given"
   fi
@@ -92,7 +94,7 @@ _symlink_zsh_files() {
   _symlink $source_directory/aliases.sh $destination_directory/aliases.sh
 
   # Custom
-  if ! [[ -z $CUSTOM_REPO_URL ]]; then
+  if ! [[ -z $CUSTOM_DOTFILES_GIVEN ]]; then
     _symlink $DOTFILES_CUSTOM_PATH/.zshrc-components/custom.sh $destination_directory/custom.sh
   fi
 
@@ -130,7 +132,7 @@ _symlink_nvim_files() {
   _symlink $source_directory/gen-config.vim $destination_directory/gen-config.vim
 
   # Custom Vim
-  if ! [[ -z $CUSTOM_REPO_URL ]]; then
+  if ! [[ -z $CUSTOM_DOTFILES_GIVEN ]]; then
     _symlink $DOTFILES_CUSTOM_PATH/.vimrc-components/custom.vim $destination_directory/custom.vim
   fi
 
@@ -148,9 +150,7 @@ _symlink_nvim_files() {
   _install_vundle
 
   # Update system neovim to use vim config
-  mkdir $HOME/.config
-  mkdir $HOME/.config/nvim
-  mkdir $HOME/.config/nvim/colors
+  mkdir -p $HOME/.config/nvim/colors
 
   # Symlink nvim files to use vim configurations
   _symlink $DOTFILES_PATH/.config/nvim/init.vim $HOME/.config/nvim/init.vim
@@ -169,7 +169,7 @@ _symlink_tmux_files() {
 
 _symlink_git_files() {
   # User specific git configs
-  if ! [[ -z $CUSTOM_REPO_URL ]]; then
+  if ! [[ -z $CUSTOM_DOTFILES_GIVEN ]]; then
     _symlink $DOTFILES_CUSTOM_PATH/.gitconfig $HOME/.gitconfig
     _symlink $DOTFILES_CUSTOM_PATH/.git-components/commit-template $HOME/.git-components/commit-template
     _symlink $DOTFILES_CUSTOM_PATH/.git-components/.gitignore $HOME/.git-components/.gitignore
