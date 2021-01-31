@@ -150,9 +150,14 @@ _symlink_nvim_files() {
   mkdir $HOME/.config/nvim
   mkdir $HOME/.config/nvim/colors
 
+  # Symlink nvim files to use vim configurations
   _symlink $DOTFILES_PATH/.config/nvim/init.vim $HOME/.config/nvim/init.vim
   _symlink $DOTFILES_PATH/.config/nvim/rplugin.vim $HOME/.config/nvim/rplugin.vim
   _symlink $DOTFILES_PATH/.config/nvim/colors/NeoSolarized.vim $HOME/.config/nvim/colors/NeoSolarized.vim
+
+  # Update plugins for nvim
+  _print_step "Updating Remote plugins for neovim"
+  nvim +UpdateRemotePlugins +qall -c ":q"
 }
 
 # Creates symbolic link for .tmux.conf file
