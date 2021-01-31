@@ -27,10 +27,6 @@ if [[ -e ./.zshrc-components/aliases.sh ]]; then
   source ./.zshrc-components/aliases.sh
 fi
 
-if [[ -e ./.zshrc-components/custom.sh ]]; then
-  source ./.zshrc-components/custom.sh
-fi
-
 if [[ -e ./.zshrc-components/asdf.sh ]]; then
   source ./.zshrc-components/asdf.sh
 fi
@@ -65,4 +61,8 @@ fi
 
 if [[ -e ./.zshrc-components/fasd.sh ]]; then
   source ./.zshrc-components/fasd.sh
+fi
+
+if [[ -e ./.zshrc-components/custom.sh ]]; then
+  source ./.zshrc-components/custom.sh
 fi

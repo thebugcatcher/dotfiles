@@ -132,7 +132,6 @@ call vundle#end()
 " ================ Yankring =========================
 
 let g:yankring_history_file = '.yankring-history'
-nnoremap ,yr :YRShow<CR>
 let g:yankring_clipboard_monitor=0
 
 " ================ CtrlP ============================
@@ -200,3 +199,7 @@ let g:airline_theme = "hybrid"
 " Limelight
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+" Optional, configure as-you-type completions
+set completeopt=menu,menuone,preview,noselect,noinsert
+let g:ale_completion_enabled = 1

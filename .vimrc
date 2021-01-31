@@ -25,21 +25,17 @@ if filereadable(expand("~/.vimrc-components/vundle.vim"))
   source ~/.vimrc-components/vundle.vim
 endif
 
-" Load Custom vim config
-if filereadable(expand("~/.vimrc-components/custom.vim"))
-  source ~/.vimrc-components/custom.vim
-endif
-
 " Load Languages
 if filereadable(expand("~/.vimrc-components/languages.vim"))
   source ~/.vimrc-components/languages.vim
 endif
 
 " Generic Functions and Mappings
-if filereadable(expand("~/.vimrc-components/functions.vim"))
-  source ~/.vimrc-components/functions.vim
-endif
-
 if filereadable(expand("~/.vimrc-components/mappings.vim"))
   source ~/.vimrc-components/mappings.vim
+endif
+
+" Load Custom vim config
+if filereadable(expand("~/.vimrc-components/custom.vim"))
+  source ~/.vimrc-components/custom.vim
 endif

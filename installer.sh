@@ -130,14 +130,10 @@ _symlink_nvim_files() {
   # Vundle (Plugin Manager)
   _symlink $source_directory/vundle.vim $destination_directory/vundle.vim
 
-  # General plugins
-  _symlink $source_directory/gen-plugins.vim $destination_directory/gen-plugins.vim
-
   # Languages
   _symlink $source_directory/languages.vim $destination_directory/languages.vim
 
   # Functions and Mappings
-  _symlink $source_directory/functions.vim $destination_directory/functions.vim
   _symlink $source_directory/mappings.vim $destination_directory/mappings.vim
 
   # Update system neovim to use vim config

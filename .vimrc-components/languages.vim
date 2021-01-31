@@ -24,3 +24,9 @@ au BufRead,BufNewFile *.y,*.ypp,*.ym setlocal filetype=yacc
 
 au BufRead,BufNewFile *.elm set filetype=elm
 au FileType elm setlocal softtabstop=4 shiftwidth=4 expandtab
+
+" Required, tell ALE where to find Elixir LS
+let g:ale_elixir_elixir_ls_release = expand("~/tools/elixir-ls/rel/")
+
+" Optional, you can disable Dialyzer with this setting
+let g:ale_elixir_elixir_ls_config = {'elixirLS': {'dialyzerEnabled': v:false}}
