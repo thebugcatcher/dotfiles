@@ -188,12 +188,22 @@ symlink_files() {
   _symlink_git_files
 }
 
+run_custom_installer() {
+  _print_step "Running custom installer"
+
+  custom_installer_path=$DOTFILES_CUSTOM_PATH/installer.sh
+  if [[ -e $custom_installer_path ]]; then
+    bash $custom_installer_path
+  fi
+}
+
 # Main interface for this script
 main() {
   clone_repo
   install_oh_my_zsh
   clone_custom_repo
   symlink_files
+  run_custom_installer
 }
 
 main
