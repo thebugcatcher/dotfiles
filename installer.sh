@@ -146,6 +146,10 @@ _symlink_nvim_files() {
   _install_vundle
 
   # Update system neovim to use vim config
+  mkdir $HOME/.config
+  mkdir $HOME/.config/nvim
+  mkdir $HOME/.config/nvim/colors
+
   _symlink $DOTFILES_PATH/.config/nvim/init.vim $HOME/.config/nvim/init.vim
   _symlink $DOTFILES_PATH/.config/nvim/rplugin.vim $HOME/.config/nvim/rplugin.vim
   _symlink $DOTFILES_PATH/.config/nvim/colors/NeoSolarized.vim $HOME/.config/nvim/colors/NeoSolarized.vim
