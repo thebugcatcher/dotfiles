@@ -171,6 +171,10 @@ _symlink_git_files() {
   # User specific git configs
   if ! [[ -z $CUSTOM_DOTFILES_GIVEN ]]; then
     _symlink $DOTFILES_CUSTOM_PATH/.gitconfig $HOME/.gitconfig
+
+    mkdir $HOME/.git-components
+
+    # TODO: Move these to custom installer
     _symlink $DOTFILES_CUSTOM_PATH/.git-components/commit-template $HOME/.git-components/commit-template
     _symlink $DOTFILES_CUSTOM_PATH/.git-components/.gitignore $HOME/.git-components/.gitignore
   fi
