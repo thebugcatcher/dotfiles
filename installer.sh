@@ -180,6 +180,10 @@ _symlink_git_files() {
   fi
 }
 
+_symlink_alacritty_files() {
+  _symlink $DOTFILES_PATH/alacritty.yml $HOME/alacritty.yml
+}
+
 # Creates symbolic link for all dotfiles to function
 symlink_files() {
   _print_step "Linking ZSH files"
@@ -197,6 +201,10 @@ symlink_files() {
   _print_step "Linking Git files"
 
   _symlink_git_files
+
+  _print_step "Linking Alacritty files"
+
+  _symlink_alacritty_files
 }
 
 run_custom_installer() {
