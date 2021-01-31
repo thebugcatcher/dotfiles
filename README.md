@@ -45,7 +45,7 @@ $ CUSTOM_REPO_URL=https://github.com/user/dotfiles.custom \
 
 #### Local directory
 
-To use a local custom dotfiles directory provide `CUSTOM_LOCAL_PATH` environment 
+To use a local custom dotfiles directory provide `CUSTOM_LOCAL_PATH` environment
 variable while running the above script.
 
 ```
