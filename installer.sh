@@ -138,6 +138,8 @@ _symlink_nvim_files() {
 
   # Update system neovim to use vim config
   _symlink $DOTFILES_PATH/.config/nvim/init.vim $HOME/.config/nvim/init.vim
+  _symlink $DOTFILES_PATH/.config/nvim/rplugin.vim $HOME/.config/nvim/rplugin.vim
+  _symlink $DOTFILES_PATH/.config/nvim/colors/NeoSolarized.vim $HOME/.config/nvim/colors/NeoSolarized.vim
 }
 
 # Creates symbolic link for .tmux.conf file
