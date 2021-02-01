@@ -32,52 +32,52 @@ source $ZSH/oh-my-zsh.sh
 
 LIBRARY_PATH=:/usr/local/opt/openssl/lib/
 
-if [[ -e ./.zshrc-components/exports.sh ]]; then
-  source ./.zshrc-components/exports.sh
+if [[ -e $HOME/.zshrc-components/exports.sh ]]; then
+  source $HOME/.zshrc-components/exports.sh
 fi
 
-if [[ -e ./.zshrc-components/aliases.sh ]]; then
-  source ./.zshrc-components/aliases.sh
+if [[ -e $HOME/.zshrc-components/aliases.sh ]]; then
+  source $HOME/.zshrc-components/aliases.sh
 fi
 
-if [[ -e ./.zshrc-components/asdf.sh ]]; then
-  source ./.zshrc-components/asdf.sh
+if [[ -e $HOME/.zshrc-components/asdf.sh ]]; then
+  source $HOME/.zshrc-components/asdf.sh
 fi
 
-if [[ -e ./.zshrc-components/asdf.elixir.sh ]]; then
-  source ./.zshrc-components/asdf.elixir.sh
+if [[ -e $HOME/.zshrc-components/asdf.elixir.sh ]]; then
+  source $HOME/.zshrc-components/asdf.elixir.sh
 fi
 
-if [[ -e ./.zshrc-components/asdf.rust.sh ]]; then
-  source ./.zshrc-components/asdf.rust.sh
+if [[ -e $HOME/.zshrc-components/asdf.rust.sh ]]; then
+  source $HOME/.zshrc-components/asdf.rust.sh
 fi
 
-if [[ -e ./.zshrc-components/asdf.ruby.sh ]]; then
-  source ./.zshrc-components/asdf.ruby.sh
+if [[ -e $HOME/.zshrc-components/asdf.ruby.sh ]]; then
+  source $HOME/.zshrc-components/asdf.ruby.sh
 fi
 
-if [[ -e ./.zshrc-components/asdf.go.sh ]]; then
-  source ./.zshrc-components/asdf.go.sh
+if [[ -e $HOME/.zshrc-components/asdf.go.sh ]]; then
+  source $HOME/.zshrc-components/asdf.go.sh
 fi
 
-if [[ -e ./.zshrc-components/asdf.haskell.sh ]]; then
-  source ./.zshrc-components/asdf.haskell.sh
+if [[ -e $HOME/.zshrc-components/asdf.haskell.sh ]]; then
+  source $HOME/.zshrc-components/asdf.haskell.sh
 fi
 
-if [[ -e ./.zshrc-components/asdf.direnv.sh ]]; then
-  source ./.zshrc-components/asdf.direnv.sh
+if [[ -e $HOME/.zshrc-components/asdf.direnv.sh ]]; then
+  source $HOME/.zshrc-components/asdf.direnv.sh
 fi
 
-if [[ -e ./.zshrc-components/asdf.nvim.sh ]]; then
-  source ./.zshrc-components/asdf.nvim.sh
+if [[ -e $HOME/.zshrc-components/asdf.nvim.sh ]]; then
+  source $HOME/.zshrc-components/asdf.nvim.sh
 fi
 
-if [[ -e ./.zshrc-components/fasd.sh ]]; then
-  source ./.zshrc-components/fasd.sh
+if [[ -e $HOME/.zshrc-components/fasd.sh ]]; then
+  source $HOME/.zshrc-components/fasd.sh
 fi
 
-if [[ -e ./.zshrc-components/custom.sh ]]; then
-  source ./.zshrc-components/custom.sh
+if [[ -e $HOME/.zshrc-components/custom.sh ]]; then
+  source $HOME/.zshrc-components/custom.sh
 fi
 
 if [ $DOTFILES_OS = "osx" ]; then
@@ -89,5 +89,5 @@ if [ $DOTFILES_OS = "osx" ]; then
   fi
 
   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+  [[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
 fi
