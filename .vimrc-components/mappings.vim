@@ -62,7 +62,7 @@ map ,jV :CtrlP vendor<CR>
 map ,jF :CtrlP factories<CR>
 map ,jT :CtrlP test<CR>
 
-" Open the project tree and expose current file in the nerdtree with Ctrl-\
+" Open the project tree and expose current file in the nerdtree with Alt-\
 " calls NERDTreeFind iff NERDTree is active, current window contains a
 " modifiable file, and we're not in vimdiff
 function! OpenNerdTree()
@@ -76,8 +76,8 @@ endfunction
 if($DOTFILES_OS == "osx")
   echo "Running on " . $DOTFILES_OS
 
-  " Use Cmd + \ on mac
-  nnoremap <silent> <D-\> :call OpenNerdTree()<CR>
+  " Use Ctrl + \ on mac (Map option key to Ctrl)
+  nnoremap <silent> <C-\> :call OpenNerdTree()<CR>
 else
   echo "Running on " . $DOTFILES_OS
 

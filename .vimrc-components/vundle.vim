@@ -193,7 +193,7 @@ let g:enable_bold_font = 1
 let g:enable_italic_font = 1
 
 set background=dark
-" colorscheme hybrid_material
+colorscheme hybrid_material
 let g:airline_theme = "hybrid"
 
 " Limelight
