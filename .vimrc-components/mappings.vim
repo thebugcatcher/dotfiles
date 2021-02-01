@@ -73,7 +73,17 @@ function! OpenNerdTree()
   endif
 endfunction
 
-nnoremap <silent> <A-\> :call OpenNerdTree()<CR>
+if($DOTFILES_OS == "osx")
+  echo "Running on " . $DOTFILES_OS
+
+  " Use Cmd + \ on mac
+  nnoremap <silent> <D-\> :call OpenNerdTree()<CR>
+else
+  echo "Running on " . $DOTFILES_OS
+
+  " Use Alt + \ on linux
+  nnoremap <silent> <A-\> :call OpenNerdTree()<CR>
+endif
 
 " ================ Splits ===========================
 " Create window splits easier. The default

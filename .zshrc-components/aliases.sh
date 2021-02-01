@@ -33,7 +33,7 @@ alias psg="ps aux | grep "
 ## TERMINAL COMMANDS ##
 #######################
 
-alias ls='ls --color=auto'
+alias ls='ls'
 alias cl="clear"
 alias less='less -r'
 alias tf='tail -f'
