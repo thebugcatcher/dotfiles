@@ -12,7 +12,7 @@
 au BufRead,BufNewFile *.rb set filetype=ruby
 au FileType ruby setl sw=2 sts=2 et iskeyword+=!,?
 
-au BufRead,BufNewFile *.ex,*.exs,*.eex set filetype=elixir
+au BufRead,BufNewFile *.ex,*.exs,*.eex,*.leex set filetype=elixir
 au FileType elixir setl sw=2 sts=2 et iskeyword+=!,?
 
 au BufRead,BufNewFile *.cr set filetype=crystal
