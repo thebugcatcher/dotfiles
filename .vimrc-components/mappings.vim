@@ -195,7 +195,3 @@ function! TerminalRSpec()
   let l:line = line('.')
   execute "!" . "RSPEC_RETRY_COUNT=1 bin/rspec %:" . l:line
 endfu
-
-let mapleader = ","
-map <silent> <leader>r :call TerminalRSpec()<CR>
-

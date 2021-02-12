@@ -126,6 +126,9 @@ Plugin 'junegunn/vim-easy-align'
 " Run tests
 Plugin 'vim-test/vim-test'
 
+" Run vim commands in small tmux pane
+Plugin 'benmills/vimux'
+
 filetype plugin indent on
 filetype on
 
@@ -206,3 +209,10 @@ autocmd! User GoyoLeave Limelight!
 " Optional, configure as-you-type completions
 set completeopt=menu,menuone,preview,noselect,noinsert
 let g:ale_completion_enabled = 1
+
+" Running tests
+let test#strategy = 'vimux'
+
+" Run nearest test in a tmux terminal
+let mapleader = ","
+map <silent> <leader>r :TestNearest<CR>
