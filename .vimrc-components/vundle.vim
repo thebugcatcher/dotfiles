@@ -123,6 +123,9 @@ Plugin 'ervandew/ag'
 " Align parameters (for Settings seeds)
 Plugin 'junegunn/vim-easy-align'
 
+" Run tests
+Plugin 'vim-test/vim-test'
+
 filetype plugin indent on
 filetype on
 
