@@ -15,6 +15,9 @@ au FileType ruby setl sw=2 sts=2 et iskeyword+=!,?
 au BufRead,BufNewFile *.ex,*.exs,*.eex,*.leex set filetype=elixir
 au FileType elixir setl sw=2 sts=2 et iskeyword+=!,?
 
+au BufRead,BufNewFile *.gleam set filetype=gleam
+au FileType elixir setl sw=2 sts=2 et iskeyword+=!,?
+
 au BufRead,BufNewFile *.cr set filetype=crystal
 au FileType crystal setl sw=2 sts=2 et iskeyword+=!,?
 
