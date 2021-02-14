@@ -129,6 +129,21 @@ Plugin 'vim-test/vim-test'
 " Run vim commands in small tmux pane
 Plugin 'benmills/vimux'
 
+" Super powered Writing
+Plugin 'reedes/vim-pencil'
+
+" Fancy abbreviation replacements
+Plugin 'tpope/vim-abolish'
+
+" Better spellcheck mappings
+Plugin 'reedes/vim-lexical'
+
+" Better autocorrections
+Plugin 'reedes/vim-litecorrect'
+
+" Gleam lang
+Plugin 'gleam-lang/gleam.vim'
+
 filetype plugin indent on
 filetype on
 
@@ -216,3 +231,22 @@ let test#strategy = 'vimux'
 " Run nearest test in a tmux terminal
 let mapleader = ","
 map <silent> <leader>r :TestNearest<CR>
+
+augroup pencil
+  autocmd!
+  autocmd filetype markdown,mkd call pencil#init()
+        \ | call lexical#init()
+        \ | call litecorrect#init()
+        \ | setl spell spl=en_us fdl=4 noru nonu nornu
+        \ | setl fdo+=search
+augroup END
+
+ " Pencil / Writing Controls {{{
+let g:pencil#wrapModeDefault = 'soft'
+let g:pencil#textwidth = 74
+let g:pencil#joinspaces = 0
+let g:pencil#cursorwrap = 1
+let g:pencil#conceallevel = 3
+let g:pencil#concealcursor = 'c'
+let g:pencil#softDetectSample = 20
+let g:pencil#softDetectThreshold = 130
