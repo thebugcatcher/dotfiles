@@ -10,6 +10,10 @@
 # versions       : Tmux 2.x, Zsh 5.x
 #==============================================================================
 
+if [[ -e /usr/local/go/bin ]]; then
+  export PATH=$PATH:/usr/local/go/bin
+fi
+
 if command -v go &> /dev/null; then
   if [[ -e $(go env GOPATH) ]]; then
     export GOPATH=$(go env GOPATH)
