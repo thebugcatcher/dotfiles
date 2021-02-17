@@ -195,3 +195,8 @@ function! TerminalRSpec()
   let l:line = line('.')
   execute "!" . "RSPEC_RETRY_COUNT=1 bin/rspec %:" . l:line
 endfu
+
+" Run nearest test in a tmux terminal
+let mapleader = ","
+map <silent> <leader>r :TestNearest<CR>
+map <silent> <leader>i :call IExExUnitRun()<CR>
