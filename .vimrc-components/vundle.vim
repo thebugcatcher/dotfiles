@@ -248,43 +248,45 @@ let g:pencil#softDetectSample = 20
 let g:pencil#softDetectThreshold = 130
 
 " Run elixir tests in iex
-
 let g:test#elixir#exunit#iex = 0
-
-function! test#elixir#exunit#executable() abort
-  if g:test#elixir#exunit#iex == 1
-    return 'iex -S mix test'
-  elseif filereadable('mix.exs')
-    return 'mix test'
-  else
-    return 'elixir'
-  end
-endfun
-
-function! test#elixir#exunit#build_position(type, position) abort
-  if test#elixir#exunit#executable() ==# 'mix test' || test#elixir#exunit#executable() ==# 'iex -S mix test'
-    if a:type ==# 'nearest'
-      if a:position['line'] > 1
-          return [a:position['file'].':'.a:position['line']]
-      else
-          return [a:position['file']]
-      endif
-    elseif a:type ==# 'file'
-      return [a:position['file']]
-    else
-      return []
-    endif
-  else
-    if a:type ==# 'nearest' || a:type ==# 'file'
-      return [a:position['file']]
-    else
-      return ['*.exs']
-    end
-  end
-endfunction
 
 function! IExExUnitRun() abort
   let g:test#elixir#exunit#iex = 1
   TestNearest
   let g:test#elixir#exunit#iex = 0
 endfu
+
+if (&ft == 'elixir')
+  " Figure out a smart way to override these
+  function! test#elixir#exunit#executable() abort
+    if g:test#elixir#exunit#iex == 1
+      return 'iex -S mix test'
+    elseif filereadable('mix.exs')
+      return 'mix test'
+    else
+      return 'elixir'
+    end
+  endfun
+
+  function! test#elixir#exunit#build_position(type, position) abort
+    if test#elixir#exunit#executable() ==# 'mix test' || test#elixir#exunit#executable() ==# 'iex -S mix test'
+      if a:type ==# 'nearest'
+        if a:position['line'] > 1
+          return [a:position['file'].':'.a:position['line']]
+        else
+          return [a:position['file']]
+        endif
+      elseif a:type ==# 'file'
+        return [a:position['file']]
+      else
+        return []
+      endif
+    else
+      if a:type ==# 'nearest' || a:type ==# 'file'
+        return [a:position['file']]
+      else
+        return ['*.exs']
+      end
+    end
+  endfunction
+endif
