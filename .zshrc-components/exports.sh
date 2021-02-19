@@ -19,9 +19,7 @@ export QT_STYLE_OVERRIDE=gtk
 export QT_SELECT=qt5
 
 # Set default language to US English
-if [[ $LANG = '' ]]; then
-  export LANG=en_US.UTF-8
-fi
+export LANG=en_US.UTF-8
 
 # XDG-User-dir well known directory
 if [ -d "$HOME/.local/bin" ] ; then
