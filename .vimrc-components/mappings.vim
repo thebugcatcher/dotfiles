@@ -200,3 +200,9 @@ endfu
 let mapleader = ","
 map <silent> <leader>r :TestNearest<CR>
 map <silent> <leader>i :call IExExUnitRun()<CR>
+
+" Convert snake_case to CamelCase
+map <silent> <leader>+ :s/\(\%(\<\l\+\)\%(_\)\@=\)\\|_\(\l\)/\u\1\2/g<CR>
+
+" Convert CamelCase to snake_case
+map <silent> <leader>_ :s/\(\<\u\l\+\\|\l\+\)\(\u\)/\l\1_\l\2/g<CR>
