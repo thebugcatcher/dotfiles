@@ -167,10 +167,11 @@ let mapleader = ","
 map <silent> <leader>f :call VisualFormatHS()<CR>
 map <silent> <leader>e :call VisualFormatEx()<CR>
 
-map <silent> <leader>m :call TerminalPreviewMarkdown()<CR>
-map <silent> <leader>p :call BrowserPreviewMarkdown()<CR>
+" TODO: Make these work on OSX
+map <silent> <leader>mt :call TerminalPreviewMarkdown()<CR>
+map <silent> <leader>mb :call BrowserPreviewMarkdown()<CR>
 
-map <silent> <leader>h :call TerminalPreviewHexDump()<CR>
+map <silent> <leader>th :call TerminalPreviewHexDump()<CR>
 
 " Investigate termopen
 function! TerminalPreviewMarkdown()
@@ -206,3 +207,9 @@ map <silent> <leader>+ :s/\(\%(\<\l\+\)\%(_\)\@=\)\\|_\(\l\)/\u\1\2/g<CR>
 
 " Convert CamelCase to snake_case
 map <silent> <leader>_ :s/\(\<\u\l\+\\|\l\+\)\(\u\)/\l\1_\l\2/g<CR>
+
+" Add elixir pry
+function! AddPryBelow()
+  call append(line("."), "require IEx; IEx.pry")
+endfunction
+map <silent> <leader>p :call AddPryBelow()<CR>
