@@ -56,7 +56,7 @@ Plugin 'kristijanhusak/vim-hybrid-material'
 Plugin 'christoomey/vim-tmux-navigator'
 
 " Distraction-Free writing in Vim
-Plugin 'junegunn/goyo.vim'
+" Plugin 'junegunn/goyo.vim'
 
 " Highlights specific pieces of code
 Plugin 'junegunn/limelight.vim'
@@ -143,6 +143,9 @@ Plugin 'reedes/vim-litecorrect'
 
 " Gleam lang
 Plugin 'gleam-lang/gleam.vim'
+
+" Format JS, HTML, CSS
+Plugin 'maksimr/vim-jsbeautify'
 
 filetype plugin indent on
 filetype on
