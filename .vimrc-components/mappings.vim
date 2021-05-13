@@ -78,6 +78,12 @@ if($DOTFILES_OS == "osx")
 
   " Use Ctrl + \ on mac (Map option key to Ctrl)
   nnoremap <silent> <C-\> :call OpenNerdTree()<CR>
+
+  " Control movement of cursor after paste
+  noremap p gp
+  noremap P gP
+  noremap gp p
+  noremap gP P
 else
   echo "Running on " . $DOTFILES_OS
 
