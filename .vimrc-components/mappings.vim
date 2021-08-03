@@ -214,6 +214,10 @@ map <silent> <leader>+ :s/\(\%(\<\l\+\)\%(_\)\@=\)\\|_\(\l\)/\u\1\2/g<CR>
 " Convert CamelCase to snake_case
 map <silent> <leader>_ :s/\(\<\u\l\+\\|\l\+\)\(\u\)/\l\1_\l\2/g<CR>
 
+" Remove duplicate lines
+" s/^\(.*\)\(\n\1\)\+$/\1/
+map <silent> <leader> d :s/^\(.*\)\(\n\1\)\+$/\1/<CR>
+
 " Add elixir pry
 function! AddPryBelow()
   call append(line("."), "require IEx; IEx.pry")

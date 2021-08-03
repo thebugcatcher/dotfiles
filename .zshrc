@@ -80,6 +80,10 @@ if [[ -e $HOME/.zshrc-components/custom.sh ]]; then
   source $HOME/.zshrc-components/custom.sh
 fi
 
+if [[ -e /Library/TeX/texbin/pdflatex ]]; then
+  export PATH="$PATH:/Library/TeX/texbin/"
+fi
+
 if [ $DOTFILES_OS = "osx" ]; then
   # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
   # Initialization code that may require console input (password prompts, [y/n]

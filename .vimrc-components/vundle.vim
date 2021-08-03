@@ -55,9 +55,6 @@ Plugin 'kristijanhusak/vim-hybrid-material'
 " Vim Tmux Navigation
 Plugin 'christoomey/vim-tmux-navigator'
 
-" Distraction-Free writing in Vim
-" Plugin 'junegunn/goyo.vim'
-
 " Highlights specific pieces of code
 Plugin 'junegunn/limelight.vim'
 
@@ -130,7 +127,7 @@ Plugin 'vim-test/vim-test'
 Plugin 'benmills/vimux'
 
 " Super powered Writing
-Plugin 'reedes/vim-pencil'
+" Plugin 'reedes/vim-pencil'
 
 " Fancy abbreviation replacements
 Plugin 'tpope/vim-abolish'
@@ -231,24 +228,14 @@ let g:ale_completion_enabled = 1
 " Running tests
 let test#strategy = 'vimux'
 
-augroup pencil
-  autocmd!
-  autocmd filetype markdown,mkd call pencil#init()
-        \ | call lexical#init()
-        \ | call litecorrect#init()
-        \ | setl spell spl=en_us fdl=4 noru nonu nornu
-        \ | setl fdo+=search
-augroup END
-
- " Pencil / Writing Controls {{{
-let g:pencil#wrapModeDefault = 'soft'
-let g:pencil#textwidth = 74
-let g:pencil#joinspaces = 0
-let g:pencil#cursorwrap = 1
-let g:pencil#conceallevel = 3
-let g:pencil#concealcursor = 'c'
-let g:pencil#softDetectSample = 20
-let g:pencil#softDetectThreshold = 130
+" augroup pencil
+"   autocmd!
+"   autocmd filetype markdown,mkd call pencil#init()
+"         \ | call lexical#init()
+"         \ | call litecorrect#init()
+"         \ | setl spell spl=en_us fdl=4 noru nonu nornu
+"         \ | setl fdo+=search
+" augroup END
 
 " Run elixir tests in iex
 let g:test#elixir#exunit#iex = 0
