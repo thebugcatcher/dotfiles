@@ -208,18 +208,40 @@ let mapleader = ","
 map <silent> <leader>r :TestNearest<CR>
 map <silent> <leader>i :call IExExUnitRun()<CR>
 
+
+" Remove duplicate lines
+" s/^\(.*\)\(\n\1\)\+$/\1/
+map <silent> <leader> d :s/^\(.*\)\(\n\1\)\+$/\1/<CR>
+
+""========================================
+"" String transformation shortcuts
+
+let mapleader = "<"
+" Convert atoms/symbols to strings
+map <silent> <leader>ws :s/:\(\w*\)/\"\1\"/g<CR>
+
+" Convert strings to atoms/symbols
+map <silent> <leader>wa :s/\"\(\w*\)\"/:\1/g<CR>
+
+" Convert string hashrockets to atoms/symbol keys
+map <silent> <leader>ma :s/\"\(\w*\)\" => /\1: /g<CR>
+
+" Convert atoms/symbol keys to string hashrockets
+map <silent> <leader>mh :s/\(\w*\): /\"\1\" => /g<CR>
+
 " Convert snake_case to CamelCase
 map <silent> <leader>+ :s/\(\%(\<\l\+\)\%(_\)\@=\)\\|_\(\l\)/\u\1\2/g<CR>
 
 " Convert CamelCase to snake_case
 map <silent> <leader>_ :s/\(\<\u\l\+\\|\l\+\)\(\u\)/\l\1_\l\2/g<CR>
 
-" Remove duplicate lines
-" s/^\(.*\)\(\n\1\)\+$/\1/
-map <silent> <leader> d :s/^\(.*\)\(\n\1\)\+$/\1/<CR>
+"" String transformation ends
+""========================================
 
+let mapleader = ","
 " Add elixir pry
 function! AddPryBelow()
   call append(line("."), "require IEx; IEx.pry")
 endfunction
+
 map <silent> <leader>p :call AddPryBelow()<CR>

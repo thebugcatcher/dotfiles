@@ -250,7 +250,7 @@ if (&ft=='elixir')
   " Figure out a smart way to override these
   function! test#elixir#exunit#executable() abort
     if g:test#elixir#exunit#iex == 1
-      return 'iex -S mix test'
+      return 'iex -S mix test --trace'
     elseif filereadable('mix.exs')
       return 'mix test'
     else
@@ -259,7 +259,7 @@ if (&ft=='elixir')
   endfun
 
   function! test#elixir#exunit#build_position(type, position) abort
-    if test#elixir#exunit#executable() ==# 'mix test' || test#elixir#exunit#executable() ==# 'iex -S mix test'
+    if test#elixir#exunit#executable() ==# 'mix test' || test#elixir#exunit#executable() ==# 'iex -S mix test --trace'
       if a:type ==# 'nearest'
         if a:position['line'] > 1
           return [a:position['file'].':'.a:position['line']]
