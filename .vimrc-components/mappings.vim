@@ -80,12 +80,14 @@ if($DOTFILES_OS == "osx")
   nnoremap <silent> <C-\> :call OpenNerdTree()<CR>
 
   " Control movement of cursor after paste
-  noremap p gp
-  noremap P gP
-  noremap gp p
-  noremap gP P
+  map p gp
+  map P gP
 else
   echo "Running on " . $DOTFILES_OS
+
+  " Control movement of cursor after paste
+  map p gp
+  map P gP
 
   " Use Alt + \ on linux
   nnoremap <silent> <A-\> :call OpenNerdTree()<CR>
@@ -105,8 +107,8 @@ nnoremap <silent> ,cr :let @* = expand("%")<CR>
 nnoremap <silent> ,cn :let @* = expand("%:t")<CR>
 
 " Auto indent pasted text
-nnoremap p p=`]<C-o>
-nnoremap P P=`]<C-o>
+" nnoremap p p=`]<C-o>
+" nnoremap P P=`]<C-o>
 
 " ToggleElixirLS if it's consuming a lot of CPU
 function! ToggleElixirLs()
