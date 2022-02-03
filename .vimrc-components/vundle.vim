@@ -91,7 +91,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
 
 " Asynchronous Lint Engine
-Plugin 'w0rp/ale'
+" Plugin 'w0rp/ale'
 
 " Motion on speed
 Plugin 'easymotion/vim-easymotion'

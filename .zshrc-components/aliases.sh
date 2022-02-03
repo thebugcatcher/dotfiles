@@ -114,3 +114,7 @@ kill_all() {
     ps aux | grep -e $match | grep -v grep | tr -s ' ' | cut -d ' ' -f 2 | xargs kill -9
   fi
 }
+
+gbd_all() {
+  git branch | egrep -v "(^\*|master|main|dev)" | xargs git branch -d
+}
