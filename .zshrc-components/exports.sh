@@ -25,3 +25,7 @@ export LANG=en_US.UTF-8
 if [ -d "$HOME/.local/bin" ] ; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
+
+# fly.io
+export FLYCTL_INSTALL="/home/adi/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
