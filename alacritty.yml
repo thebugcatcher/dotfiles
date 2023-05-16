@@ -60,17 +60,17 @@ colors:
 
 font:
   normal:
-    family: Inconsolata
+    family: Hack Nerd Font Mono
     style: Regular
 
   # The bold font face
   bold:
-    family: Inconsolata
+    family: Hack Nerd Font Mono
     style: Bold
 
   # The italic font face
   italic:
-    family: Inconsolata
+    family: Hack Nerd Font Mono
     style: Italic
 
   size: 7

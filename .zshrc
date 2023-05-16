@@ -95,3 +95,9 @@ if [ $DOTFILES_OS = "osx" ]; then
   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
   [[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/aditya.iyengar/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/aditya.iyengar/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/aditya.iyengar/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aditya.iyengar/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

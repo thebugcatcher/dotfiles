@@ -49,7 +49,7 @@ alias lsg='ll | grep'
 alias gz='tar -zcvf'
 
 # Convert xclip to mac-like pbcopy
-alias pbcopy="xclip -sel clip"
+# alias pbcopy="xclip -sel clip"
 
 ##################
 ## GIT COMMANDS ##
